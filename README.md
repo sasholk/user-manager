@@ -1,39 +1,27 @@
-# Material UI - Vite.js in TypeScript example
+# User Manager
 
-## How to use
+## 📑 Table of Contents
 
-Download the example [or clone the repo](https://github.com/mui/material-ui):
+1. [Links](#-links)
+2. [Description](#-description)
+3. [Used Technologies](#-used-technologies)
+4. [Structure](#-structure)
+5. [Quick Start](#-quick-start)
+6. [Run Tests](#-run-tests)
+7. [Additional Information](#-additional-information)
 
-<!-- #default-branch-switch -->
+### 🛠️ **Sturcture:**
 
-```bash
-curl https://codeload.github.com/mui/material-ui/tar.gz/v6.x | tar -xz --strip=2 material-ui-6.x/examples/material-ui-vite-ts
-cd material-ui-vite-ts
 ```
-
-Install it and run:
-
-```bash
-npm install
-npm run dev
+src/
+├── app/           # Redux, RTK Query, routing configuration
+├── entities/      # API, models
+├── features/      # Features (CRUD operations)
+│   ├── user-list/
+│   ├── user-form/
+│   ├── user-delete/
+├── shared/        # Shared components (Modal, Button)
+├── pages/         # Main pages
+├── widgets/       # UI components (tables, forms)
+└── index.tsx      # Entry point
 ```
-
-or:
-
-<!-- #default-branch-switch -->
-
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/v6.x/examples/material-ui-vite-ts)
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/github/mui/material-ui/tree/v6.x/examples/material-ui-vite-ts)
-
-## The idea behind the example
-
-This example uses [Vite.js](https://github.com/vitejs/vite).
-It includes `@mui/material` and its peer dependencies, including [Emotion](https://emotion.sh/docs/introduction), the default style engine in Material UI v6.
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation and continue by browsing the [templates](https://mui.com/material-ui/getting-started/templates/) section.
