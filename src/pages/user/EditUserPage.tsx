@@ -1,11 +1,11 @@
-import { showToast } from '@/entities/toastSlice';
 import {
   useGetUsersQuery,
   useUpdateUserMutation,
-} from '@/entities/user/model/userApi';
+} from '@/entities/user/model/slice';
 import { UserFormData } from '@/features/user/user-form/schema';
 import UserForm from '@/features/user/user-form/UserForm';
 import { useAppDispatch } from '@/shared/hooks';
+import { showToast } from '@/widgets/toast/model/slice';
 import { Box, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 

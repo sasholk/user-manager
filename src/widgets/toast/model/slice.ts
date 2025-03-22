@@ -1,10 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface ToastState {
-  open: boolean;
-  message: string;
-  severity?: 'success' | 'info' | 'warning' | 'error';
-}
+import { ToastState } from './type';
 
 const initialState: ToastState = {
   open: false,

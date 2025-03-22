@@ -31,6 +31,13 @@ export default function UserForm({
           {...register('name')}
           error={!!errors.name}
           helperText={errors.name?.message}
+          sx={{
+            color: '#ffffff',
+            '&:-webkit-autofill': {
+              WebkitBoxShadow: '0 0 0 100px #eaeef1 inset',
+              WebkitTextFillColor: 'ffffff',
+            },
+          }}
         />
         <TextField
           label="Email"

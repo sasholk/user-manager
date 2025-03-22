@@ -1,11 +1,12 @@
-import { showToast } from '@/entities/toastSlice';
 import {
   useDeleteUserMutation,
   useGetUsersQuery,
-} from '@/entities/user/model/userApi';
+} from '@/entities/user/model/slice';
 import { useAppDispatch } from '@/shared/hooks';
+import { showToast } from '@/widgets/toast/model/slice';
+import { UserTable } from '@/widgets/users-table';
 import { Box, Button, CircularProgress, Stack } from '@mui/material';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { GridColDef } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 
 export default function UsersPage() {
@@ -42,7 +43,14 @@ export default function UsersPage() {
       headerName: 'Actions',
       width: 200,
       renderCell: (params) => (
-        <Stack direction="row" spacing={2}>
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="center"
+          alignItems="center"
+          height="100%"
+          width="100%"
+        >
           <Button
             variant="outlined"
             color="primary"
@@ -78,20 +86,7 @@ export default function UsersPage() {
       ) : isError ? (
         <p>Error fetching users</p>
       ) : (
-        <DataGrid
-          rows={data}
-          columns={columns}
-          getRowId={(row) => row.id}
-          pageSizeOptions={[10, 20, 50]}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                pageSize: 10,
-              },
-            },
-          }}
-          disableRowSelectionOnClick
-        />
+        <UserTable users={data} />
       )}
     </Box>
   );

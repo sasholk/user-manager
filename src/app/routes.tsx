@@ -1,4 +1,4 @@
-import MainLayout from '@/layouts/MainLayout';
+import { MainLayout } from '@/shared/layouts/main-layout';
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
 
