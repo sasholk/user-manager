@@ -1,4 +1,13 @@
-import { AppBar, Button, Container, Toolbar, Typography } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  Toolbar,
+  Typography,
+} from '@mui/material';
+import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 export default function MainLayout() {
@@ -6,7 +15,7 @@ export default function MainLayout() {
     <>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
             User Manager
           </Typography>
           <Button color="inherit" component={Link} to="/">
@@ -22,7 +31,22 @@ export default function MainLayout() {
       </AppBar>
 
       <Container sx={{ mt: 4 }}>
-        <Outlet />
+        <Suspense
+          fallback={
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '50vh',
+              }}
+            >
+              <CircularProgress />
+            </Box>
+          }
+        >
+          <Outlet />
+        </Suspense>
       </Container>
     </>
   );
