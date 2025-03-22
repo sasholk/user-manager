@@ -69,15 +69,14 @@ export default function UsersPage() {
           rows={data}
           columns={columns}
           getRowId={(row) => row.id}
-          pageSizeOptions={[5, 10]}
+          pageSizeOptions={[10, 20, 50]}
           initialState={{
             pagination: {
               paginationModel: {
-                pageSize: 5,
+                pageSize: 10,
               },
             },
           }}
-          checkboxSelection
           disableRowSelectionOnClick
         />
       )}
