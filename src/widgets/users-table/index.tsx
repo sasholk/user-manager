@@ -10,14 +10,15 @@ interface Props {
 
 export function UserTable({ users }: Props) {
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'name', headerName: 'Name', width: 200 },
-    { field: 'email', headerName: 'Email', width: 250 },
-    { field: 'phone', headerName: 'Phone', width: 200 },
+    { field: 'id', headerName: 'ID', flex: 0.2 },
+    { field: 'name', headerName: 'Name', flex: 1 },
+    { field: 'email', headerName: 'Email', flex: 1.5 },
+    { field: 'phone', headerName: 'Phone', flex: 1 },
     {
       field: 'actions',
       headerName: 'Actions',
-      width: 200,
+      flex: 0.6,
+      headerAlign: 'right',
       renderCell: (params) => (
         <>
           <Stack
@@ -37,14 +38,14 @@ export function UserTable({ users }: Props) {
   ];
 
   return (
-    <Box sx={{ height: 500, width: '100%' }}>
+    <Box sx={{ width: '100%' }}>
       <DataGrid
         rows={users}
         columns={columns}
         getRowId={(row) => row.id}
-        pageSizeOptions={[10, 20, 50]}
+        pageSizeOptions={[5, 10, 20, 50]}
         initialState={{
-          pagination: { paginationModel: { pageSize: 10 } },
+          pagination: { paginationModel: { pageSize: 20 } },
         }}
         disableRowSelectionOnClick
       />
