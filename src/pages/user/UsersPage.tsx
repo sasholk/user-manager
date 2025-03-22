@@ -4,7 +4,7 @@ import {
 } from '@/entities/user/model/slice';
 import { useAppDispatch } from '@/shared/hooks';
 import { showToast } from '@/widgets/toast/model/slice';
-import { UserTable } from '@/widgets/users-table';
+import { UserTable } from '@/widgets/users-table/UsersTable';
 import { Box, Button, CircularProgress, Stack } from '@mui/material';
 import { GridColDef } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
