@@ -1,9 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
+import toastReducer from '@/entities/toastSlice';
 import { userApi } from '@/entities/userApi';
+import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
   reducer: {
     [userApi.reducerPath]: userApi.reducer,
+    toast: toastReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(userApi.middleware),

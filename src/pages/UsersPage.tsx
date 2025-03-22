@@ -1,10 +1,13 @@
+import { showToast } from '@/entities/toastSlice';
 import { useDeleteUserMutation, useGetUsersQuery } from '@/entities/userApi';
+import { useAppDispatch } from '@/shared/hooks';
 import { Box, Button, CircularProgress, Stack } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 
 export default function UsersPage() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const { data = [], isLoading, isError } = useGetUsersQuery();
   const [deleteUser] = useDeleteUserMutation();
@@ -16,6 +19,13 @@ export default function UsersPage() {
   const handleDelete = async (id: number) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       await deleteUser(id);
+
+      dispatch(
+        showToast({
+          message: 'User deleted successfully',
+          severity: 'success',
+        }),
+      );
     }
   };
 
@@ -29,7 +39,7 @@ export default function UsersPage() {
       headerName: 'Actions',
       width: 200,
       renderCell: (params) => (
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={2}>
           <Button
             variant="outlined"
             color="primary"
