@@ -1,6 +1,10 @@
 import { showToast } from '@/entities/toastSlice';
-import { useGetUsersQuery, useUpdateUserMutation } from '@/entities/userApi';
-import UserForm, { UserFormData } from '@/features/user/UserForm';
+import {
+  useGetUsersQuery,
+  useUpdateUserMutation,
+} from '@/entities/user/model/userApi';
+import { UserFormData } from '@/features/user/user-form/schema';
+import UserForm from '@/features/user/user-form/UserForm';
 import { useAppDispatch } from '@/shared/hooks';
 import { Box, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';

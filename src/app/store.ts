@@ -1,5 +1,5 @@
 import toastReducer from '@/entities/toastSlice';
-import { userApi } from '@/entities/userApi';
+import { userApi } from '@/entities/user/model/userApi';
 import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({

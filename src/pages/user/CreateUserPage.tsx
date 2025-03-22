@@ -1,6 +1,7 @@
 import { showToast } from '@/entities/toastSlice';
-import { useAddUserMutation } from '@/entities/userApi';
-import UserForm, { UserFormData } from '@/features/user/UserForm';
+import { useAddUserMutation } from '@/entities/user/model/userApi';
+import { UserFormData } from '@/features/user/user-form/schema';
+import UserForm from '@/features/user/user-form/UserForm';
 import { useAppDispatch } from '@/shared/hooks';
 import { Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';

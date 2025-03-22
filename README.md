@@ -23,5 +23,5 @@ src/
 ├── shared/        # Shared components (Modal, Button)
 ├── pages/         # Main pages
 ├── widgets/       # UI components (tables, forms)
-└── index.tsx      # Entry point
+└── main.tsx       # Entry point
 ```

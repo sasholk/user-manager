@@ -2,10 +2,10 @@ import MainLayout from '@/layouts/MainLayout';
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
 
-const Home = React.lazy(() => import('@/pages/HomePage'));
-const Users = React.lazy(() => import('@/pages/UsersPage'));
-const CreateUser = React.lazy(() => import('@/pages/CreateUserPage'));
-const EditUser = React.lazy(() => import('@/pages/EditUserPage'));
+const Home = React.lazy(() => import('@/pages/home/HomePage'));
+const Users = React.lazy(() => import('@/pages/user/UsersPage'));
+const CreateUser = React.lazy(() => import('@/pages/user/CreateUserPage'));
+const EditUser = React.lazy(() => import('@/pages/user/EditUserPage'));
 
 const routes: RouteObject[] = [
   {

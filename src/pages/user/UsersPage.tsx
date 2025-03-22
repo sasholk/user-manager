@@ -1,5 +1,8 @@
 import { showToast } from '@/entities/toastSlice';
-import { useDeleteUserMutation, useGetUsersQuery } from '@/entities/userApi';
+import {
+  useDeleteUserMutation,
+  useGetUsersQuery,
+} from '@/entities/user/model/userApi';
 import { useAppDispatch } from '@/shared/hooks';
 import { Box, Button, CircularProgress, Stack } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
