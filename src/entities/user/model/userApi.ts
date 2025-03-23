@@ -1,6 +1,37 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { User } from './types';
 
+/**
+ * API service for managing users.
+ * 
+ * @remarks
+ * This service uses `createApi` from Redux Toolkit Query to define endpoints for fetching, adding, updating, and deleting users.
+ * It also includes optimistic updates to the cached `getUsers` query data.
+ * 
+ * @constant
+ * @type {Api}
+ * 
+ * @property {Function} getUsers - Fetches the list of users.
+ * @property {Function} addUser - Adds a new user. Optimistically updates the cached `getUsers` result.
+ * @property {Function} updateUser - Updates an existing user by ID. Optimistically updates the cached `getUsers` result.
+ * @property {Function} deleteUser - Deletes a user by ID. Optimistically updates the cached `getUsers` result.
+ * 
+ * @example
+ * // Fetch users
+ * const { data: users } = useGetUsersQuery();
+ * 
+ * // Add a user
+ * const [addUser] = useAddUserMutation();
+ * addUser({ name: 'John Doe', email: 'john.doe@example.com' });
+ * 
+ * // Update a user
+ * const [updateUser] = useUpdateUserMutation();
+ * updateUser({ id: 1, user: { name: 'Jane Doe' } });
+ * 
+ * // Delete a user
+ * const [deleteUser] = useDeleteUserMutation();
+ * deleteUser(1);
+ */
 export const userApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://jsonplaceholder.typicode.com',
