@@ -1,7 +1,7 @@
 import {
   useDeleteUserMutation,
   useGetUsersQuery,
-} from '@/entities/user/model/slice';
+} from '@/entities/user/model/userApi';
 import { useAppDispatch } from '@/shared/hooks';
 import { showToast } from '@/widgets/toast/model/slice';
 import { UserTable } from '@/widgets/users-table/UsersTable';

@@ -1,7 +1,7 @@
 import {
   useGetUsersQuery,
   useUpdateUserMutation,
-} from '@/entities/user/model/slice';
+} from '@/entities/user/model/userApi';
 import { UserFormData } from '@/features/user/user-form/schema';
 import UserForm from '@/features/user/user-form/UserForm';
 import { useAppDispatch } from '@/shared/hooks';
