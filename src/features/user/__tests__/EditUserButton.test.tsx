@@ -17,7 +17,7 @@ describe('EditUserButton', () => {
     const navigate = vi.fn();
     (useNavigate as unknown as jest.Mock).mockReturnValue(navigate);
 
-    customRender(<EditUserButton id={5} />, { useMemoryRouter: true });
+    customRender(<EditUserButton id={5} />);
 
     fireEvent.click(screen.getByRole('button', { name: /edit/i }));
 
