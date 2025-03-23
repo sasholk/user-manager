@@ -1,7 +1,11 @@
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-export function EditUserButton({ id }: { id: number }) {
+interface Props {
+  id: number;
+}
+
+export function EditUserButton({ id }: Props) {
   const navigate = useNavigate();
   return (
     <Button

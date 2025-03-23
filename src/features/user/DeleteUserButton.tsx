@@ -1,32 +1,45 @@
 import { useDeleteUserMutation } from '@/entities/user';
-import { useAppDispatch } from '@/shared/hooks';
-import { showToast } from '@/widgets/toast/model/slice';
 import { Button } from '@mui/material';
+import { useState } from 'react';
+import { ConfirmModal } from './ConfirmModal';
 
-export function DeleteUserButton({ id }: { id: number }) {
-  const dispatch = useAppDispatch();
+interface Props {
+  id: number;
+}
+
+export function DeleteUserButton({ id }: Props) {
   const [deleteUser] = useDeleteUserMutation();
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleDelete = async () => {
-    if (window.confirm('Are you sure you want to delete this user?')) {
-      await deleteUser(id);
-      dispatch(
-        showToast({
-          message: 'User deleted successfully',
-          severity: 'success',
-        }),
-      );
-    }
+    await deleteUser(id);
+    handleClose();
   };
 
   return (
-    <Button
-      variant="outlined"
-      color="error"
-      size="small"
-      onClick={handleDelete}
-    >
-      Delete
-    </Button>
+    <>
+      <Button
+        variant="outlined"
+        color="error"
+        size="small"
+        onClick={handleClickOpen}
+      >
+        Delete
+      </Button>
+
+      <ConfirmModal
+        open={open}
+        handleClose={handleClose}
+        handleDelete={handleDelete}
+      />
+    </>
   );
 }

@@ -4,8 +4,6 @@ import {
 } from '@/entities/user/model/userApi';
 import { UserFormData } from '@/features/user/user-form/schema';
 import UserForm from '@/features/user/user-form/UserForm';
-import { useAppDispatch } from '@/shared/hooks';
-import { showToast } from '@/widgets/toast/model/slice';
 import { Box, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -14,7 +12,6 @@ export default function EditUserPage() {
   const navigate = useNavigate();
   const { data: users = [] } = useGetUsersQuery();
   const [updateUser, { isLoading }] = useUpdateUserMutation();
-  const dispatch = useAppDispatch();
 
   const user = users.find((u) => u.id === Number(id));
 
@@ -23,12 +20,6 @@ export default function EditUserPage() {
   const handleSubmit = async (data: UserFormData) => {
     await updateUser({ id: Number(id), user: data }).unwrap();
     navigate('/users');
-    dispatch(
-      showToast({
-        message: 'User updated successfully',
-        severity: 'success',
-      }),
-    );
   };
 
   return (
@@ -36,6 +27,7 @@ export default function EditUserPage() {
       <Typography variant="h5" mb={2}>
         Edit User
       </Typography>
+
       <UserForm
         onSubmit={handleSubmit}
         initialValues={{

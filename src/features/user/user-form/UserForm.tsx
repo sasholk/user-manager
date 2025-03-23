@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Box, Button, Stack, TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { UserFormData, userSchema } from './schema';
 
 interface Props {
@@ -23,6 +24,9 @@ export default function UserForm({
     resolver: zodResolver(userSchema),
   });
 
+  const navigate = useNavigate();
+  const handleCancelButton = () => navigate('/users');
+
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
       <Stack spacing={2}>
@@ -31,13 +35,6 @@ export default function UserForm({
           {...register('name')}
           error={!!errors.name}
           helperText={errors.name?.message}
-          sx={{
-            color: '#ffffff',
-            '&:-webkit-autofill': {
-              WebkitBoxShadow: '0 0 0 100px #eaeef1 inset',
-              WebkitTextFillColor: 'ffffff',
-            },
-          }}
         />
         <TextField
           label="Email"
@@ -51,9 +48,16 @@ export default function UserForm({
           error={!!errors.phone}
           helperText={errors.phone?.message}
         />
-        <Button type="submit" variant="contained" disabled={isSubmitting}>
-          {isSubmitting ? 'Saving...' : 'Save'}
-        </Button>
+
+        <Stack direction="row" spacing={2}>
+          <Button type="submit" variant="contained" disabled={isSubmitting}>
+            {isSubmitting ? 'Saving...' : 'Save'}
+          </Button>
+
+          <Button type="button" variant="outlined" onClick={handleCancelButton}>
+            Cancel
+          </Button>
+        </Stack>
       </Stack>
     </Box>
   );
